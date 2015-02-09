@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath group: 'pl.allegro.tech.build', name: 'axion-release-plugin', version: '1.1.1-development-SNAPSHOT'
+    }
+}
+
+
+apply plugin: 'axion-release'
+
+scmVersion {
+    tag {
+        prefix = 'release'
+    }
+
+    hooks {
+        pre 'fileUpdate', [file: 'README.md', pattern: {v, p -> /(version:) $v/}, replacement: {v, p -> "\$1 $v"}]
+    }
+
+    versionCreator 'versionWithBranch'
+}
+
+project.version = scmVersion.version
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}
