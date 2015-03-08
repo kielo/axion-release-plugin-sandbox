@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath group: 'pl.allegro.tech.build', name: 'axion-release-plugin', version: '1.1.1-development-SNAPSHOT'
+        classpath group: 'pl.allegro.tech.build', name: 'axion-release-plugin', version: '1.2.1-development-SNAPSHOT'
     }
 }
 
