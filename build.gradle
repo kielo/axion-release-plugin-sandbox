@@ -21,6 +21,8 @@ scmVersion {
         pre 'commit'
     }
 
+    versionIncrementingRule 'incrementMinor'
+
     versionCreator 'versionWithBranch'
 }
 
