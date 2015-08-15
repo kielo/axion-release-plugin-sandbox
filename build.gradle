@@ -9,7 +9,7 @@ buildscript {
 }
 
 
-apply plugin: 'axion-release'
+apply plugin: 'pl.allegro.tech.build.axion-release'
 
 scmVersion {
     tag {
@@ -21,7 +21,7 @@ scmVersion {
         pre 'commit'
     }
 
-    versionIncrementingRule 'incrementMinor'
+    versionIncrementer 'incrementMinorIfNotOnRelease', [releaseBranchPattern: 'master']
 
     versionCreator 'versionWithBranch'
 }
